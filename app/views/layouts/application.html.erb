@@ -5,14 +5,28 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-  <div class="container">
-    <%= yield %>
-  </div>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <%= yield %>
+        </div>
+        <div class="col">
+          <%=map(:center => {
+    :latlng => [51.52238797921441, -0.08366235665359283],
+    :zoom => 18
+  },
+  :markers => [
+    {
+       :latlng => [51.52238797921441, -0.08366235665359283],
+    }
+  ]
+)%>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
