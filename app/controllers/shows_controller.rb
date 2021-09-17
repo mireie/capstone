@@ -8,11 +8,14 @@ class ShowsController < ApplicationController
 
   # GET /shows/1 or /shows/1.json
   def show
+    @venue = Venue.find(params[:venue_id])
+    @show = Show.find(params[:id])
   end
 
   # GET /shows/new
   def new
-    @show = Show.new
+    @venue = Venue.find(params[:venue_id])
+    @show = @venue.shows.new
   end
 
   # GET /shows/1/edit
@@ -21,7 +24,9 @@ class ShowsController < ApplicationController
 
   # POST /shows or /shows.json
   def create
+    @venue = Venue.find(params[:venue_id])
     @show = Show.new(show_params)
+    render :show
 
     respond_to do |format|
       if @show.save
@@ -36,14 +41,13 @@ class ShowsController < ApplicationController
 
   # PATCH/PUT /shows/1 or /shows/1.json
   def update
-    respond_to do |format|
-      if @show.update(show_params)
-        format.html { redirect_to @show, notice: "Show was successfully updated." }
-        format.json { render :show, status: :ok, location: @show }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @show.errors, status: :unprocessable_entity }
-      end
+    @show = Show.find(params[:id])
+    if @show.update(show_params)
+      flash[:notice] = "Show successfully updated!"
+      redirect_to venue_path(@show.venue)
+    else
+      @venue = Venue.find(params[:venue_id])
+      render :edit
     end
   end
 
