@@ -83,8 +83,6 @@ GEM
     erubi (1.10.0)
     execjs (2.8.1)
     ffi (1.15.4-x64-mingw32)
-    formtastic (4.0.0)
-      actionpack (>= 5.2.0)
     globalid (0.5.2)
       activesupport (>= 5.0)
     i18n (1.8.10)
@@ -203,7 +201,6 @@ DEPENDENCIES
   bootstrap (~> 5.1.0)
   byebug
   devise
-  formtastic (~> 4.0)
   jbuilder (~> 2.7)
   jquery-rails
   pg (~> 1.1)
