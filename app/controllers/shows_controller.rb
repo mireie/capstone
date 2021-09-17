@@ -26,7 +26,7 @@ class ShowsController < ApplicationController
   def create
     @venue = Venue.find(params[:venue_id])
     @show = Show.new(show_params)
-    render :show
+   
 
     respond_to do |format|
       if @show.save

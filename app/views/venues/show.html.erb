@@ -5,10 +5,7 @@
   <%= @venue.name %>
 </p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @venue.street_address %>
-</p>
 
 <%= link_to 'Edit', edit_venue_path(@venue) %> |
 <%= link_to 'Back', venues_path %>
+<%= link_to 'Add Show', new_venue_show_path(@venue) %>

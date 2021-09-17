@@ -1,4 +1,4 @@
-<%= form_with(model: show) do |form| %>
+<%= form_with(model: @show, url: [@venue, @show, local: true]) do |form| %>
   <% if show.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(show.errors.count, "error") %> prohibited this show from being saved:</h2>

@@ -14,11 +14,8 @@
   <tbody>
     <% @shows.each do |show| %>
       <tr>
-        <td><%= show.name %></td>
+        <td><%= show.title %></td>
         <td><%= show.venue_id %></td>
-        <td><%= link_to 'Show', show %></td>
-        <td><%= link_to 'Edit', edit_show_path(show) %></td>
-        <td><%= link_to 'Destroy', show, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
