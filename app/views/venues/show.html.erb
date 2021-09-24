@@ -1,4 +1,5 @@
 <div class="row venue-header">
+<div class="text-overlay d-flex">
   <div class="col align-self-end">
     <h1 class="display-1"><%=@venue.name%></h1>
     <ul>
@@ -6,6 +7,7 @@
       <li><%=@venue.street_address%></li>
       <li><%="#{@venue.city}, #{@venue.state} #{@venue.zip_code}"%></li>
     </ul>
+  </div>
   </div>
 </div>
 <h2>Upcoming Shows</h2>
