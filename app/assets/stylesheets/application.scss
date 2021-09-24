@@ -14,4 +14,25 @@
  *= require_self
  *= require leaflet
  */
- @import "bootstrap";
+@import "bootstrap";
+
+@font-face {
+  font-family: 'Roboto-Slab';
+  src: url('RobotoSlab-Medium.ttf') format('truetype');
+}
+
+
+* {
+  color: #eee;
+  font-family: 'Roboto-Slab';
+}
+
+body {
+  background-color: #303030;
+}
+
+a {
+  color: #eee;
+  font-weight: bold;
+}
+
