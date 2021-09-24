@@ -3,27 +3,45 @@
     <table class="table table-borderless">
       <thead>
         <tr>
-          <th scope="col">Date</th>
+          <th class="col-1" scope="col">Date/Time</th>
           <th scope="col">Show</th>
-          <th scope="col">All Ages</th>
-          <th scope="col">Cost</th>
-          <th scope="col">Website</th>
+          <th class="col-1" scope="col">All Ages</th>
+          <th class="col-1" scope="col">Cost</th>
+          <th class="col-2" scope="col">Website</th>
         </tr>
       </thead>
       <tbody>
         <% @venue.shows.order(:showtime).reverse_order.each do |s| %>
+          <% if s.showtime != nil %>
+            <% date = s.showtime.strftime('%b %-d') %>
+            <% time = s.showtime.strftime('%I:%M%p') %>
+          <%else%>
+            <% date = "N/A" %>
+            <% time=""%>
+          <%end%>
           <tr>
             <th scope="row">
-              <div class="row"><%=s.showtime%></div>
-              <div class="row"><%=s.showtime%></div>
+              <div class="col">
+                <%=date%><br>
+                <%=time%>
+              </div>
             </th>
             <td>
-              <div class="row"><%=s.title%></div>
-              <div class="row"><%=s.artist1%></div>
+              <div class="col">
+                <strong><%=s.title%></strong>
+                <br>
+                <%=s.artist1%>
+              </div>
             </td>
-            <td><%=s.all_ages%></td>
-            <td><%=s.price%></td>
-            <td><%=s.url%></td>
+            <td><%=s.all_ages ? "YES!" : "21+"%></td>
+            <td><%=s.price ? "$#{s.price}" : "FREE" %></td>
+            <td>
+              <% if s.url != nil%>
+                <%= link_to "More info", s.url, target: "_blank", class:"btn btn-primary"%>
+              <%else%>
+                
+              <%end%>
+            </td>
           </tr>
         <%end%>
       </tbody>
