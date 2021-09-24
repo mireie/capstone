@@ -1,4 +1,4 @@
-<% if @venue.shows.any? %>
+<% if shows.any? %>
   <div class="table-responsive">
     <table class="table table-borderless">
       <thead>
@@ -11,7 +11,7 @@
         </tr>
       </thead>
       <tbody>
-        <% @venue.shows.order(:showtime).reverse_order.each do |s| %>
+        <% shows.order(:showtime).reverse_order.each do |s| %>
           <% if s.showtime != nil %>
             <% date = s.showtime.strftime('%b %-d') %>
             <% time = s.showtime.strftime('%I:%M%p') %>
