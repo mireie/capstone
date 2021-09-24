@@ -14,6 +14,7 @@
         <% shows.order(:showtime).reverse_order.each do |s| %>
           <% if s.showtime != nil %>
             <% date = s.showtime.strftime('%b %-d') %>
+            <% date_long = s.showtime.strftime('%B %-d, %Y') %>
             <% time = s.showtime.strftime('%I:%M%p') %>
           <%else%>
             <% date = "N/A" %>
@@ -22,7 +23,7 @@
           <tr>
             <th scope="row">
               <div class="col">
-                <%=date%><br>
+                <span title="<%=date_long%>"><%=date%></span><br>
                 <%=time%>
               </div>
             </th>
@@ -39,7 +40,6 @@
               <% if s.url != nil%>
                 <%= link_to "More info", s.url, target: "_blank", class:"btn btn-primary"%>
               <%else%>
-                
               <%end%>
             </td>
           </tr>
