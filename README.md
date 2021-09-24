@@ -3,7 +3,7 @@
 
 **Name of Project**: ElevenPDX Musicalendar
 
-**Project's Purpose or Goal**: Allow users to find shows at local venues in one location online. 
+**Project's Purpose or Goal**: Allow users to find shows and their details at local venues in one location online. 
 
 **List the absolute minimum features the project requires to meet this purpose or goal:**
 
