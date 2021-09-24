@@ -17,14 +17,13 @@
 @import "bootstrap";
 
 @font-face {
-  font-family: 'Roboto-Slab';
-  src: url('RobotoSlab-Medium.ttf') format('truetype');
+  font-family: "Roboto-Slab";
+  src: url("RobotoSlab-Medium.ttf") format("truetype");
 }
-
 
 * {
   color: #eee;
-  font-family: 'Roboto-Slab';
+  font-family: "Roboto-Slab";
 }
 
 body {
@@ -35,7 +34,18 @@ a {
   color: #eee;
 }
 
-#user-info, #user-info a {
+#user-info,
+#user-info a {
   color: #303030;
-  margin-left:auto;
+  margin-left: auto;
+}
+
+.venue-header {
+  background-image: linear-gradient(transparent, rgba(30,30,30,.3) 100%),
+    url("https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg");
+  min-height: 500px;
+  background-attachment: fixed;
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
