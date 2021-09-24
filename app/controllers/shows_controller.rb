@@ -16,6 +16,7 @@ class ShowsController < ApplicationController
   def new
     @venue = Venue.find(params[:venue_id])
     @show = @venue.shows.new
+    render :new
   end
 
   # GET /shows/1/edit
@@ -25,12 +26,11 @@ class ShowsController < ApplicationController
   # POST /shows or /shows.json
   def create
     @venue = Venue.find(params[:venue_id])
-    @show = Show.new(show_params)
-   
+    @show = @venue.shows.new(show_params)
 
     respond_to do |format|
       if @show.save
-        format.html { redirect_to @show, notice: "Show was successfully created." }
+        format.html { render :show, notice: "Show was successfully created." }
         format.json { render :show, status: :created, location: @show }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -61,13 +61,14 @@ class ShowsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_show
-      @show = Show.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def show_params
-      params.require(:show).permit(:title, :artist1, :artist2, :artist3, :artist4, :showtime, :details, :price, :all_ages, :url, :venue_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_show
+    @show = Show.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def show_params
+    params.require(:show).permit(:title, :artist1, :artist2, :artist3, :artist4, :showtime, :details, :price, :all_ages, :url, :venue_id)
+  end
 end
