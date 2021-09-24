@@ -2,7 +2,7 @@
   <div class="col">
     <h1 class="display-1"><%=@venue.name%></h1>
     <ul>
-      <li><%=link_to @venue.website%></li>
+      <li><%=link_to @venue.website, @venue.website, target: '_blank'%></li>
       <li><%=@venue.street_address%></li>
       <li><%="#{@venue.city}, #{@venue.state} #{@venue.zip_code}"%></li>
     </ul>
