@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-md navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">Musicalendar</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,10 +14,6 @@
         <% else %>
           <%= link_to "Sign up", '/users/sign_up' %> | <%= link_to "Sign in", '/users/sign_in'%>
         <% end %>
-        <% if current_user && current_user.admin?%>
-          <%= " | " %>
-          <%= link_to 'User Management', '/user-admin/'%>
-        <%end %>
       </div>
     </div>
   </div>

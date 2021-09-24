@@ -1,10 +1,10 @@
-Show.destroy_all
-Venue.destroy_all
 
 class Seed
-
+  
   def self.begin
     puts "Cleaning up after the last mess, please wait a moment..."
+    Show.destroy_all
+    Venue.destroy_all
     
     seed = Seed.new
     seed.generate_venues
@@ -33,13 +33,13 @@ class Seed
     @venues = Venue.all
     @venues.each do |venue|
       puts "\n-#{venue.name}:\n"
-      all_ages = "false"
-      artist4 = ""
-      if rand(3) == 1
-        all_ages = "true"
-        artist4 = Faker::Hipster.words(spaces_allowed: true).join(" ").titleize
-      end
       rand(1..50).times do
+        all_ages = "false"
+        artist4 = ""
+        if rand(3) == 1
+          all_ages = "true"
+          artist4 = Faker::Hipster.words(spaces_allowed: true).join(" ").titleize
+        end
         name = Faker::Hipster.words(spaces_allowed: true)
         Show.create!(
           title: name.join(" ").titleize,
@@ -54,7 +54,7 @@ class Seed
           url: "#{venue.website}/#{name.each{|word| word.gsub!(' ','-')}.join('-')}",
           venue_id: venue.id
         )
-        print "."
+        print all_ages == 'true' ? "A" : "."
       end
     end
     puts "\nCreated #{Show.count} shows at #{Venue.count} venues."
