@@ -10,6 +10,7 @@
   </head>
   <body>
     <div class="container">
+    <%= render "layouts/header"%>
       <%if flash[:alert] %>
         <div class="alert alert-danger mt-3" role="alert">
           <%= flash[:alert] %>
