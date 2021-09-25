@@ -3,7 +3,7 @@ class ShowsController < ApplicationController
 
   # GET /shows or /shows.json
   def index
-    @shows = Show.all
+    @shows = Show.order(:showtime).page(params[:page])
   end
 
   # GET /shows/1 or /shows/1.json

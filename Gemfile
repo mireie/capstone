@@ -27,6 +27,7 @@ gem 'jquery-rails'
 gem 'leaflet-rails'
 gem 'dotenv-rails'
 gem 'faker'
+gem 'kaminari'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
