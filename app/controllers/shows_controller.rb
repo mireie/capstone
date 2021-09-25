@@ -1,5 +1,5 @@
 class ShowsController < ApplicationController
-  before_action :set_show, only: %i[ show edit update destroy get_artists ]
+  before_action :set_show, only: %i[ show edit update destroy ]
 
   # GET /shows or /shows.json
   def index
@@ -58,17 +58,6 @@ class ShowsController < ApplicationController
       format.html { redirect_to shows_url, notice: "Show was successfully destroyed." }
       format.json { head :no_content }
     end
-  end
-  
-  def get_artists
-    artists = [@show.artist1, @show.artist2, @show.artist3, @show.artist4]
-    output = ""
-    artists.each do |artist|
-      if artist != ""
-        output = output + " " + artist
-      end
-    end
-    output
   end
 
   private
