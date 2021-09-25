@@ -11,11 +11,11 @@
         </tr>
       </thead>
       <tbody>
-        <% shows.order(:showtime).reverse_order.each do |s| %>
+        <% shows.order(:showtime).each do |s| %>
           <% if s.showtime != nil %>
             <% date = s.showtime.strftime('%b %-d') %>
             <% date_long = s.showtime.strftime('%B %-d, %Y') %>
-            <% time = s.showtime.strftime('%I:%M%p') %>
+            <% time = s.showtime.strftime('%I:%M %p') %>
           <%else%>
             <% date = "N/A" %>
             <% time=""%>
