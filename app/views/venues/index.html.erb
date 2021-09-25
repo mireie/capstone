@@ -1,7 +1,7 @@
 
 <p id="notice"><%= notice %></p>
 <h1>Venues</h1>
-
+<%= paginate @venues%>
 <table>
   <thead>
     <tr>
@@ -23,7 +23,7 @@
     <% end %>
   </tbody>
 </table>
-
+<%= paginate @venues%>
 <br>
 
 <%= link_to 'New Venue', new_venue_path %>
