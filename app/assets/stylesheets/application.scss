@@ -18,12 +18,12 @@
 
 @font-face {
   font-family: "Roboto-Slab";
-  src: url("RobotoSlab-Medium.ttf") format("truetype");
+  src: font-url("RobotoSlab-Medium.ttf") format("truetype");
 }
 
 * {
   color: #eee;
-  font-family: "Roboto-Slab";
+  font-family: "Roboto-Slab", sans-serif;
 }
 
 body {
