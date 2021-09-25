@@ -7,7 +7,15 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item"><a class="nav-link" href="/venues">Venues</a></li>
-        <li class="nav-item"><a class="nav-link" href="/shows">Shows</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="/students" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Shows
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/shows">All Shows</a></li>
+            <li><a class="dropdown-item" href="/shows/all-ages">All Ages Shows</a></li>
+          </ul>
+        </li>
       </ul>
       <div id="user-info">
         <% if current_user %>

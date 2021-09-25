@@ -12,6 +12,10 @@ class ShowsController < ApplicationController
     @show = Show.find(params[:id])
   end
 
+  def all_ages
+    @shows = Show.all_ages.order(:showtime).page(params[:page])
+  end
+
   # GET /shows/new
   def new
     @venue = Venue.find(params[:venue_id])

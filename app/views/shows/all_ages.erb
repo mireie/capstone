@@ -1,0 +1,4 @@
+<h1>Upcoming All Ages Shows</h1>
+<%= paginate @shows.upcoming.all_ages %>
+<%= render :partial => "shows/shows_grid", :locals => {:shows => @shows.upcoming.all_ages}%>
+<%= paginate @shows.upcoming.all_ages %>
