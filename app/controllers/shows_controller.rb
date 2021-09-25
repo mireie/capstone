@@ -1,5 +1,5 @@
 class ShowsController < ApplicationController
-  before_action :set_show, only: %i[ show edit update destroy ]
+  before_action :set_show, only: %i[ show edit update destroy get_artists ]
 
   # GET /shows or /shows.json
   def index
@@ -59,6 +59,17 @@ class ShowsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def get_artists
+    artists = [@show.artist1, @show.artist2, @show.artist3, @show.artist4]
+    output = ""
+    artists.each do |artist|
+      if artist != ""
+        output = output + " " + artist
+      end
+    end
+    output
+  end
 
   private
 
@@ -71,4 +82,5 @@ class ShowsController < ApplicationController
   def show_params
     params.require(:show).permit(:title, :artist1, :artist2, :artist3, :artist4, :showtime, :details, :price, :all_ages, :url, :venue_id)
   end
+
 end

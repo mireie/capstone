@@ -5,9 +5,9 @@
         <tr>
           <th class="col-1" scope="col">Date/Time</th>
           <th scope="col">Show</th>
-          <th class="col-1" scope="col">All Ages</th>
-          <th class="col-1" scope="col">Cost</th>
-          <th class="col-2" scope="col">Website</th>
+          <th class="col-1 text-end" scope="col">All Ages</th>
+          <th class="col-1 text-end" scope="col">Cost</th>
+          <th class="col-1 text-end" scope="col">Website</th>
         </tr>
       </thead>
       <tbody>
@@ -31,14 +31,14 @@
               <div class="col">
                 <strong><%=s.title%></strong>
                 <br>
-                <%=s.artist1%>
+                <%="#{s.artist1}, #{s.artist2}, #{s.artist3}, #{s.artist4} "%> <!--Write a method for this-->
               </div>
             </td>
-            <td><%=s.all_ages ? "YES!" : "21+"%></td>
-            <td><%=s.price ? "$#{s.price}" : "FREE" %></td>
-            <td>
+            <td class="text-end"><%=s.all_ages ? "YES!" : "21+"%></td>
+            <td class="text-end"><%=s.price ? number_to_currency(s.price) : "FREE" %></td>
+            <td class="text-end">
               <% if s.url != nil%>
-                <%= link_to "More info", s.url, target: "_blank", class:"btn btn-primary"%>
+                <strong><%= link_to "🡥", s.url, target: "_blank", class:"btn btn-primary"%></strong>
               <%else%>
               <%end%>
             </td>
