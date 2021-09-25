@@ -16,30 +16,42 @@
       <%= form.text_field :title, class: 'form-control' %>
       <%= form.label :details %>
       <%= form.text_area :details, class: 'form-control' %>
-      <%= form.label :price %>
-      <%= form.number_field :price, min: 0, max: 1000, step: 0.01, class: 'form-control' %>
       <%= form.label :url %>
       <%= form.text_field :url, class: 'form-control' %>
-      <%= form.label :all_ages %>
-      <%= form.check_box :all_ages, class: 'form-check' %>
+      <div class="row">
+        <div class="col">
+          <%= form.label :price %>
+          <%= form.number_field :price, min: 0, max: 1000, step: 0.01, class: 'form-control' %>
+        </div>
+        <div class="col">
+          <%= form.label :all_ages %>
+          <%= form.check_box :all_ages, class: 'form-check' %>
+        </div>
+      </div>
       <%= form.label :showtime %>
-      <%= form.datetime_field :showtime, class: 'form-control' %>
+      <div class="row">
+        <div class="col">
+          <%= form.datetime_field :showtime, {minute_step: 15, class: 'form-control'} %>
+        </div>
+        <div class="col">
+          <span class="form-text"> MM/DD/YYY HH:MM AM/PM</span>
+        </div>
+      </div>
     </div>
     <div class="col">
       <h2>Performers</h2>
-      <p>Enter Artists</p>
-        <%= form.label :artist1 %>
-        <%= form.text_field :artist1, class: 'form-control' %>
-        <%= form.label :artist2 %>
-        <%= form.text_field :artist2, class: 'form-control' %>
-        <%= form.label :artist3 %>
-        <%= form.text_field :artist3, class: 'form-control' %>
-        <%= form.label :artist4 %>
-        <%= form.text_field :artist4, class: 'form-control' %>
+      <%= form.label :artist1 %>
+      <%= form.text_field :artist1, class: 'form-control' %>
+      <%= form.label :artist2 %>
+      <%= form.text_field :artist2, class: 'form-control' %>
+      <%= form.label :artist3 %>
+      <%= form.text_field :artist3, class: 'form-control' %>
+      <%= form.label :artist4 %>
+      <%= form.text_field :artist4, class: 'form-control' %>
     </div>
   </div>
 </div>
 <div class="actions">
-  <%= form.submit class:"btn btn-primary" %>
+  <%= form.submit class:"btn btn-primary mt-3" %>
 </div>
 <% end %>
