@@ -27,6 +27,7 @@ gem 'leaflet-rails'
 gem 'dotenv-rails'
 gem 'faker'
 gem 'kaminari'
+gem 'geocoder'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
