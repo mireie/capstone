@@ -41,7 +41,7 @@
     <%Venue.all.each do |venue| %>
       <%if venue.geocoded?%>
         const marker_<%=venue.id%> = L.marker(<%=venue.to_coordinates%>).addTo(mymap)
-        marker_<%=venue.id%>.bindPopup("<%=venue.name%><br>Shows: <%=venue.shows.count%>")
+        marker_<%=venue.id%>.bindPopup('<%= link_to "#{venue.name}", venue %><br>Shows: <%=venue.shows.count%>')
       <%end%>
     <%end%>
   }
