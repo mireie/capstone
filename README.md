@@ -29,6 +29,3 @@
 **Is there anything else you'd like your instructor to know?**
 
 My goal is to use this as a feature on [https://elevenpdx.com](https://elevenpdx.com) (a WordPress site that I 'built'). We have this in the print version of the magazine and I've always thought a digital version would be really helpful. Here's an example: [https://issuu.com/elevenpdx/docs/eleven-100-fhr/10](https://issuu.com/elevenpdx/docs/eleven-100-fhr/10)
-
-## Log for Epicodus
-Most of the day has been career services. Required to apply to four jobs today.
