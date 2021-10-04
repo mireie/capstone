@@ -1,3 +1,4 @@
+require "csv"
 
 class Seed
   
@@ -12,18 +13,26 @@ class Seed
   end
 
   def generate_venues
-    puts "Generating venues."
-    rand(50..100).times do |i|
-      name = Faker::Hipster.words(number: 2, spaces_allowed: true)
-      Venue.create!(
-        name: "The #{name.join(" ").titleize}",
-        street_address: Faker::Address.street_address,
-        city: Faker::Address.city,
-        state: Faker::Address.state,
-        zip_code: Faker::Address.zip_code,
-        website: "https://musicalendar.herokuapp.com/example-venue/#{name.each{|word| word.gsub!(' ','-')}.join('-')}"
-      )
-      print "."
+    
+    puts "Importing venues."
+    filename = 'app/import/import-venues.csv'
+    imported_venues = CSV.read(filename)
+    imported_venues.each do |venue|
+      if Geocoder.search("#{venue.first} Portland, OR")[0]
+        gr = Geocoder.search("#{venue.first} Portland, OR")[0].data['address'] 
+        Venue.create!(
+          name: venue.first,
+          street_address: "#{gr['house_number']} #{gr['road']} ",
+          city: gr['city'],
+          state: gr['state'],
+          zip_code: gr['postcode'],
+        )
+      else 
+        Venue.create!(
+          name: venue.first
+        )
+      end
+      puts Venue.last.name
     end
     puts "\n"
   end

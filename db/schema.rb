@@ -83,8 +83,8 @@ ActiveRecord::Schema.define(version: 2021_10_04_185706) do
     t.string "website"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "latitude"
-    t.string "longitude"
+    t.float "latitude"
+    t.float "longitude"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
