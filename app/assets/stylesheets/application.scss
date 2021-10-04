@@ -50,11 +50,21 @@ a {
     background-size: cover;
   }
   .text-overlay {
-    background: linear-gradient(to top, rgba(30, 30, 30, 0.33) 25%, transparent 42%);
+    background: linear-gradient(
+      to top,
+      rgba(30, 30, 30, 0.33) 25%,
+      transparent 42%
+    );
   }
 }
 
 .show-table {
   border-bottom: #eee solid 5px;
 }
-#mapid { height: 50%; }
+#mapid {
+  height: 50%;
+}
+
+.leaflet-popup-content {
+  color:black;
+}
