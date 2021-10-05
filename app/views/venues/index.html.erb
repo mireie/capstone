@@ -31,7 +31,7 @@
     <%@venues.each do |venue| %>
       <%if venue.geocoded?%>
         myIcon = L.icon({
-          iconUrl: "<%= asset_path 'marker.png' %>",
+          iconUrl: "<%= asset_path venue.has_all_ages? ? 'marker_aa.png' : 'marker.png'%>",
           iconSize: setIconSize(<%=venue.shows.upcoming.count%>),
         });
         const marker_<%=venue.id%> = L.marker(<%=venue.to_coordinates%>, {icon: myIcon}).addTo(venueMap)
