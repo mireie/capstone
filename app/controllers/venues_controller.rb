@@ -3,7 +3,7 @@ class VenuesController < ApplicationController
 
   # GET /venues or /venues.json
   def index
-    @venues = Venue.order(:name).page(params[:page])
+    @venues = Venue.order(:name)
   end
 
   # GET /venues/1 or /venues/1.json
