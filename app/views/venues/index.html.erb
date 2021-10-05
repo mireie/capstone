@@ -3,9 +3,8 @@
     <div id="mapid"></div>
   </div>
   <div class="col">
-    <h2>Venue Details</h2>
     <div id="deets">
-    This should change.
+    Select a venue to get details!
     </div>
   </div>
 </div>
@@ -54,7 +53,7 @@
     <%Venue.all.each do |venue| %>
       <%if venue.geocoded?%>
         const marker_<%=venue.id%> = L.marker(<%=venue.to_coordinates%>).addTo(mymap)
-        marker_<%=venue.id%>.bindPopup('<%= link_to "#{venue.name}", venue %><br>Shows: <%=venue.shows.count%>')
+        marker_<%=venue.id%>.bindPopup('<%= link_to "#{venue.name}", venue, remote: true %><br>Shows: <%=venue.shows.count%>')
       <%end%>
     <%end%>
   }
