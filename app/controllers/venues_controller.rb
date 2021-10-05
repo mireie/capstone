@@ -8,6 +8,10 @@ class VenuesController < ApplicationController
 
   # GET /venues/1 or /venues/1.json
   def show
+    respond_to do |format|
+      format.html {render :show }
+      format.js {render layout: false}
+    end
   end
 
   # GET /venues/new

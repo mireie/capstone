@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col">
+    <h3><%=@venue.name%></h3>
+    <h4>Upcoming Shows!</h4>
+    <% if @venue.shows %>
+      <ul>
+      <%counter = 1%>
+        <%@venue.shows.upcoming.each do |show| %>
+          <li><%=show.title%></li>
+        <%end%>
+      </ul>
+    <%end%>
+  </div>
+</div>
