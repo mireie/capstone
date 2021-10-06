@@ -31,7 +31,7 @@
             <td><%=link_to Venue.find(s.venue_id).name, venue_path(Venue.find(s.venue_id)) %></td>
             <td>
               <div class="col">
-                <strong><%=s.title%></strong>
+                <strong><%= link_to s.title, s %></strong>
                 <br>
                 <%=s.get_artists%>
               </div>

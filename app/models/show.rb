@@ -5,6 +5,7 @@ class Show < ApplicationRecord
   scope :past, -> { where.not('showtime >?', Time.now).order('showtime') }
   scope :all_ages, -> { where(all_ages: true) }
 
+
   def get_artists
     artists = [self.artist1, self.artist2, self.artist3, self.artist4]
     artists.reject!(&:empty?)

@@ -8,8 +8,8 @@ class ShowsController < ApplicationController
 
   # GET /shows/1 or /shows/1.json
   def show
-    @venue = Venue.find(params[:venue_id])
     @show = Show.find(params[:id])
+    @venue = Venue.find(@show.venue_id)
   end
 
   def all_ages

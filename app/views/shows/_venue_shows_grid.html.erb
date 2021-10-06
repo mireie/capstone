@@ -29,7 +29,7 @@
             </th>
             <td>
               <div class="col">
-                <strong><%=s.title%></strong>
+                <strong><%= link_to s.title, "/venues/#{s.venue_id}/shows/#{s.id}" %></strong>
                 <br>
                 <%=s.get_artists%>
               </div>

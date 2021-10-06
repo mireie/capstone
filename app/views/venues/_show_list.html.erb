@@ -1,5 +1,6 @@
 <h2>Upcoming Shows at <%=@venue.name%></h2>
 <%if @venue.shows.any? %>
+
   <div class="table-responsive">
     <table class="table table-borderless">
       <thead class="show-table">
@@ -30,7 +31,8 @@
             </th>
             <td>
               <div class="col">
-                <strong><%=s.title%></strong>
+              
+                <strong><%= link_to s.title, "venues/#{s.venue_id}/shows/#{s.id}" %></strong>
                 <br>
                 <%=s.get_artists%>
               </div>

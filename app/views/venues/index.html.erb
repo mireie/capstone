@@ -32,10 +32,10 @@
       <%if venue.geocoded?%>
         myIcon = L.icon({
           iconUrl: "<%= asset_path venue.has_all_ages? ? 'marker_aa.png' : 'marker.png'%>",
-          iconSize: setIconSize(<%=venue.shows.upcoming.count%>),
+          iconSize: setIconSize(<%=venue.shows.upcoming.size%>),
         });
         const marker_<%=venue.id%> = L.marker(<%=venue.to_coordinates%>, {icon: myIcon}).addTo(venueMap)
-        marker_<%=venue.id%>.bindPopup('<%= link_to "#{venue.name}", venue, remote: true %><br>Shows: <%=venue.shows.count%>')
+        marker_<%=venue.id%>.bindPopup('<%= link_to "#{venue.name}", venue, remote: true %><br>Shows: <%=venue.shows.upcoming.size%>')
       <%end%>
     <%end%>
   }
