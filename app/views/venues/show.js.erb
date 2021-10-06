@@ -1,6 +1,8 @@
 function updateDetails() {
-let thingToChange = document.getElementById("deets")
-thingToChange.innerHTML = "<%= j render('show') %>"
+  const venue = document.getElementById("venue-details")
+  const shows = document.getElementById("venue-shows")
+  venue.innerHTML = "<%= j render('venue_details') %>"
+  shows.innerHTML = "<%= j render('show_list') %>"
 }
 
 updateDetails()
