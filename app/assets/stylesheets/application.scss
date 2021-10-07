@@ -21,7 +21,10 @@
   src: font-url("RobotoSlab-Medium.ttf") format("truetype");
 }
 
-* {
+.container,
+table,
+td,
+tr {
   color: #eee;
   font-family: "Roboto-Slab", sans-serif;
 }
@@ -70,4 +73,5 @@ a {
 .card-title,
 .card-subtitle a {
   color: #303030;
+  font-family: "Roboto-Slab", sans-serif;
 }
