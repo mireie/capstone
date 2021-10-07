@@ -1,0 +1,25 @@
+<%show_img = asset_path 'default.jpeg'%>
+<div class="col-3">
+  <div class="card mb-3">
+    <img src="<%=show_img%>" class="card-img-top" id="show-header" alt="show image">
+    <div class="card-body">
+      <h5 class="card-title"><%=show.title%></h5>
+      <h6 class="card-text mb-2"><% date = show.showtime.strftime('%b %-d') %>
+        <% date_long = show.showtime.strftime('%B %-d, %Y') %>
+        <% time = show.showtime.strftime('%l:%M %p') %>
+        <span class="card-text" title="<%=date_long%>"><%=date%> <%=time%></span></h6>
+      <h6 class="card-subtitle mb-2"><%=link_to Venue.find(show.venue_id).name, Venue.find(show.venue_id)%></h6>
+      <p class="card-text"></p>
+      <%=link_to "Show Details", show, class: "btn btn-primary"%>
+    </div>
+  </div>
+</div>
+<script>
+<% if show.show_img.attached?%>
+  setShowImg('<%=url_for(show.show_img)%>')
+    <%else%>
+  <%end%>
+  function setShowImg(image) {
+    document.getElementById('show-header').src = image;
+  }
+</script>

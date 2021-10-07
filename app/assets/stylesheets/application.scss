@@ -65,6 +65,9 @@ a {
   height: 500px;
 }
 
-.leaflet-popup-content {
-  color:black;
+.leaflet-popup-content,
+.card-text,
+.card-title,
+.card-subtitle a {
+  color: #303030;
 }

@@ -50,8 +50,14 @@
       <%= form.text_field :artist4, class: 'form-control' %>
     </div>
   </div>
-</div>
-<div class="actions">
-  <%= form.submit class:"btn btn-primary mt-3" %>
-</div>
+  <div class="row">
+    <div class="col">
+      <%= form.label :show_img, class:"form-label" %>
+      <%= form.file_field :show_img %>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class:"btn btn-primary mt-3" %>
+  </div>
 <% end %>
