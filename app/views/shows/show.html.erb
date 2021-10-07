@@ -30,7 +30,7 @@
 <hr>
 <h2>Other Shows at <%=@venue.name%></h2>
 <div class="row">
-  <% @venue.shows.includes([:show_img_attachment]).limit(8).each do |show| %>
+  <% @venue.shows.upcoming.order(:showtime).includes([:show_img_attachment]).limit(8).each do |show| %>
     <%= render :partial => "shows/show_card",:locals => {:show => show} %>
   <%end%>
 </div>
