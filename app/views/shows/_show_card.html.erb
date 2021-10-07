@@ -2,7 +2,7 @@
   <div class="card mb-3">
     <img src="https://musicalendar.s3.us-west-2.amazonaws.com/default.jpeg" class="card-img-top" id="show-header-<%=show.id%>" alt="show image">
     <div class="card-body">
-      <h5 class="card-title"><%=show.title%></h5>
+      <h5 class="card-title"><%=link_to show.title, show %></h5>
       <h6 class="card-text mb-2"><% date = show.showtime.strftime('%b %-d') %>
         <% date_long = show.showtime.strftime('%B %-d, %Y') %>
         <% time = show.showtime.strftime('%l:%M %p') %>

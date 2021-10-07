@@ -4,15 +4,20 @@
   </div>
   <div class="col">
     <div id="venue-details">
-      Select a venue to get details!
+      <h2>Select a venue to get details!</h2>
     </div>
   </div>
 </div>
 <hr>
 <div class="row" id="venue-shows">
   <h2>Upcoming Shows</h2>
-  <%= @shows.each do |show| %>
-    <%= render :partial => "shows/show_card",:locals => {:show => show} %>
+  <%if @shows.any? %>
+    <% @shows.limit(25).each do |show| %>
+      <%= render :partial => "shows/show_card",:locals => {:show => show} %>
+    <%end%>
+    <%= link_to "See all shows", '/shows' %>
+    <%else%>
+    <p>No Shows! Oh Noes!</p>
   <%end%>
   <br>
 </div>
