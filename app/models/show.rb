@@ -11,4 +11,8 @@ class Show < ApplicationRecord
     artists.reject!(&:empty?)
     artists.join(", ")
   end
+  
+  def artist_list
+    [self.artist1, self.artist2, self.artist3, self.artist4]
+  end
 end

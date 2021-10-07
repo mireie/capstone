@@ -19,19 +19,23 @@
   <div class="col">
     <h3>Artists</h3>
     <ul>
-      <li><%=@show.get_artists%></li>
-    </ul>
-  </div>
+      <%@show.artist_list.each do |artist|%>
+      <%if !artist.blank?%>
+        <li><%=artist%></li>
+      <%end%>
+    <%end%>
+  </ul>
+</div>
 </div>
 <hr>
 <h2>Other Shows at <%=@venue.name%></h2>
 <div class="row">
-  <div class="col">
-    <%= render :partial => "shows/venue_shows_grid", :locals => {:shows => @venue.shows.upcoming.limit(5)}%>
-  </div>
+  <% @venue.shows.limit(8).each do |show| %>
+    <%= render :partial => "shows/show_card",:locals => {:show => show} %>
+  <%end%>
 </div>
 
-<%= link_to 'Edit', edit_show_path(@show) %> |
+<%= link_to 'Edit Show', edit_show_path(@show) %> |
 <%= link_to 'Edit', edit_venue_path(@venue) %> |
 <%= link_to 'Back', venues_path %> |
 <%= link_to 'Add Show', new_venue_show_path(@venue) %>

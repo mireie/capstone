@@ -1,1 +1,7 @@
-All Venues
+<div class="row">
+  <% if @venues.any? %>
+    <% @venues.each do |venue| %>
+      <%= render :partial => "venue_card", :locals => {:venue => venue}%>
+    <%end%>
+  <%end%>
+</div>

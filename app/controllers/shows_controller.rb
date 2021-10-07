@@ -3,7 +3,7 @@ class ShowsController < ApplicationController
 
   # GET /shows or /shows.json
   def index
-    @shows = Show.order(:showtime).page(params[:page])
+    @shows = Show.order(:showtime).page(params[:page]).includes([:show_img_attachment])
   end
 
   # GET /shows/1 or /shows/1.json

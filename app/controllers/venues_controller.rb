@@ -3,7 +3,7 @@ class VenuesController < ApplicationController
 
   # GET /venues or /venues.json
   def index
-    @venues = Venue.order(:name)
+    @venues = Venue.order(:name).includes([:venue_img_attachment])
   end
 
   # GET /venues/1 or /venues/1.json

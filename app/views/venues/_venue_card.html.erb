@@ -1,0 +1,19 @@
+<div class="col-3">
+  <div class="card mb-3">
+    <img src="<%=asset_path 'default.jpeg'%>" class="card-img-top" id="venue-header-<%=venue.id%>" alt="venue image">
+    <div class="card-body">
+      <h5 class="card-title"><%=venue.name%></h5>
+      <p class="card-text"></p>
+      <%=link_to "Venue Details", venue, class: "btn btn-primary"%>
+    </div>
+  </div>
+</div>
+<script>
+<% if venue.venue_img.attached?%>
+  setVenueImg('<%=url_for(venue.venue_img)%>')
+
+  <%end%>
+  function setVenueImg(image) {
+    document.getElementById('venue-header-<%=venue.id%>').src = image;
+  }
+</script>

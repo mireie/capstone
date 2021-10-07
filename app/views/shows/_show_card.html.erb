@@ -1,7 +1,6 @@
-<%show_img = asset_path 'default.jpeg'%>
 <div class="col-3">
   <div class="card mb-3">
-    <img src="<%=show_img%>" class="card-img-top" id="show-header" alt="show image">
+    <img src="<%=asset_path 'default.jpeg'%>" class="card-img-top" id="show-header-<%=show.id%>" alt="show image">
     <div class="card-body">
       <h5 class="card-title"><%=show.title%></h5>
       <h6 class="card-text mb-2"><% date = show.showtime.strftime('%b %-d') %>
@@ -18,8 +17,11 @@
 <% if show.show_img.attached?%>
   setShowImg('<%=url_for(show.show_img)%>')
     <%else%>
+    <% if Venue.find(show.venue_id).venue_img.attached?%>
+      setShowImg('<%=url_for(Venue.find(show.venue_id).venue_img)%>')
+    <%end%>
   <%end%>
   function setShowImg(image) {
-    document.getElementById('show-header').src = image;
+    document.getElementById('show-header-<%=show.id%>').src = image;
   }
 </script>
