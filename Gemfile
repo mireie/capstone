@@ -28,6 +28,7 @@ gem 'dotenv-rails'
 gem 'faker'
 gem 'kaminari'
 gem 'geocoder'
+gem "aws-sdk-s3", require: false
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
